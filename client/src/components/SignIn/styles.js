@@ -7,7 +7,7 @@ export default EStyleSheet.create({
        justifyContent: 'space-between',
        alignItems: 'center',
        position: 'relative',
-       top: -60
+       top: -20
     },
      headerText: {
          fontSize: 25,

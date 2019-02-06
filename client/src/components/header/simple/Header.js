@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, TouchableOpacity, Image } from 'react-native';
-import logo from '../../../../assets/logo.png';
-const Header = () => {
-    <View>
-        <TouchableOpacity>
-            <Image source={logo} />
-        </TouchableOpacity>
+import { View, Image } from 'react-native';
+import styles from './styles';
+
+const Header = () => (
+    
+    <View style={styles.container}>
+        <Image source={ require('../images/logo.png')} style={styles.logo} />
     </View>
-};
+    
+);
 
 export default Header;

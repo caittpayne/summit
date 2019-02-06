@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StatusBar } from 'react-native';
-import { SignIn, styles } from '../components/SignIn';
+import { SignIn } from '../components/SignIn';
 import { Container } from '../components/Container';
 import { Header } from '../components/header/main';
 
-export default () => (
-    <Container>
-        <StatusBar translucent={false} barStyle='default'/>
-        <Header />
-        <SignIn />
-    </Container>
-);
+class Home extends Component {
+    render() {
+        return(
+            <Container>
+            <StatusBar translucent={false} barStyle='default'/>
+            <Header />
+            <SignIn navigation={this.props.navigation}/>
+        </Container>
+        )
+    }
+}
+export default Home;

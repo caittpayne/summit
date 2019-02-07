@@ -1,5 +1,6 @@
 const app = require('./app');
 const http = require('http');
+const mongoose = require('./db/mongoose');
 
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);

@@ -24,6 +24,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "A mobile application where bakers can convert their recipes for high-altitude climates. ",
+    "githubUrl": "https://github.com/caittpayne/summit"
   }
 }

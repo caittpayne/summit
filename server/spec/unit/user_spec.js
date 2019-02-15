@@ -34,20 +34,21 @@ describe("User", () => {
           done();
         });
     });
-    it('should not create a new User object with invalid email or password', done => {
-        const newUser = new User({
-            email:'test',
-            password: '1234567'
-        });
+    it("should not create a new User object with invalid email or password", done => {
+      const newUser = new User({
+        email: "test",
+        password: "1234567"
+      });
 
-        newUser.save().then(() => {
-            
-            done();
+      newUser
+        .save()
+        .then(() => {
+          done();
         })
-        .catch((err) => {
-            expect(err).not.toBeNull();
-            done();
-        })
+        .catch(err => {
+          expect(err).not.toBeNull();
+          done();
+        });
     });
   });
 
@@ -56,7 +57,7 @@ describe("User", () => {
       this.user;
 
       const theUser = new User({
-        email: "altitudetest@summit.com",
+        email: "starbaker@summit.com",
         password: "1234567"
       });
 

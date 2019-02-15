@@ -37,7 +37,6 @@ class AltitudeForm extends Component {
           )
           .then(response => {
             if (response.status == 200) {
-              console.log("success");
               this.setState({ success: "Saved!" });
             }
           })

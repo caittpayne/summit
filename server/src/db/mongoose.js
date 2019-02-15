@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
-const config = require("./config");
 
 mongoose.Promise = global.Promise;
 
 mongoose
-  .connect(config.db)
+  .connect(process.env.DB)
   .then(() => {
-    console.log(`DB Connected: ${config.db}`);
+    console.log(`DB Connected: ${process.env.DB}`);
   })
   .catch(err => {
     console.log(err);

@@ -1,7 +1,8 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-import SignIn from '../screens/Home';
+import SignIn from '../screens/SignIn';
 import Register from '../screens/Register';
+import Home from '../screens/Home';
   
 
 const AppStack = createStackNavigator({
@@ -11,7 +12,13 @@ const AppStack = createStackNavigator({
             header: null
         }
     },
-    Register: Register
+    Register: Register,
+    Home: {
+        screen: Home,
+        navigationOptions: {
+            header: null
+        }
+    },
   }, 
   {
       initialRouteName: 'SignIn'

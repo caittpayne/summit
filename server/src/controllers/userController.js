@@ -51,6 +51,7 @@ module.exports = {
               .send();
           })
           .catch(err => {
+            console.log(err)
             return res.status(401).send(err);
           });
       })
@@ -82,5 +83,20 @@ module.exports = {
       .catch(err => {
         res.status(500).send(err);
       });
-  }
+  },
+
+  getUser(req, res) {
+      User.findOne({_id: req._id}).then((user) => {
+          if(!user) {
+              return res.status(404).send();
+          } 
+          return res.status(200).send(user);
+
+
+      }).catch((err) => {
+          console.log(err);
+          return res.status(401).send(err);
+      });
+  },
+
 };

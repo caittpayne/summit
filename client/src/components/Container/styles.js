@@ -1,11 +1,11 @@
-import EStyleSheet from 'react-native-extended-stylesheet';
+import EStyleSheet from "react-native-extended-stylesheet";
 
 export default EStyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        backgroundColor: '$primaryWhite',
-        justifyContent: 'center'
-    }
-})
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    backgroundColor: "$primaryWhite",
+    justifyContent: "center"
+  }
+});

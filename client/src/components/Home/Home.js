@@ -1,26 +1,44 @@
 import React, { Component } from "react";
-import { View, Modal, Text, TouchableHighlight } from "react-native";
+import {
+  View,
+  Modal,
+  Text,
+  TouchableHighlight,
+  AsyncStorage
+} from "react-native";
 import { Button } from "react-native-elements";
+import Icon from "react-native-vector-icons/FontAwesome";
 import styles from "./styles";
-import Form from './Form/Form';
-import { AsyncStorage } from 'react-native';
+import url from "../../environment.js";
+import Form from "./Form/Form";
+import axios from "axios";
 
 class Home extends Component {
+  state = {
+    modalVisible: false
+  };
 
-        state = {
-            modalVisible: false
-          };
- 
   componentDidMount() {
-    
-    // make axios request to get user and check if there's an alitude save. If yes, set to true. If no, set to false.
-
-    
-    this.setModalVisible(true);
-  } 
+    AsyncStorage.getItem("x-auth")
+      .then(token => {
+        axios
+          .get(`${url}/user/getUser`, { headers: { "x-auth": token } })
+          .then(response => {
+            if ((response.status == 200 || 304) && !response.data.altitude) {
+              this.setModalVisible(true);
+            }
+          })
+          .catch(err => {
+            this.setModalVisible(false);
+          });
+      })
+      .catch(err => {
+        this.setModalVisible(false);
+      });
+  }
 
   setModalVisible(visible) {
-    this.setState({modalVisible: visible});
+    this.setState({ modalVisible: visible });
   }
 
   render() {
@@ -33,15 +51,31 @@ class Home extends Component {
           onRequestClose={this._handleCloseModal}
         >
           <View style={styles.modalContainer}>
-              <Text>Welcome to Summit!</Text>
-              <Text>Before getting started, save your alitude to your profile</Text>
-              <Form />
-              <TouchableHighlight
-                onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
-                }}>
-                <Text>Close</Text>
-              </TouchableHighlight>
+            <View style={styles.modalBox}>
+              <View style={styles.closeView}>
+                <TouchableHighlight
+                  onPress={() => {
+                    this.setModalVisible(!this.state.modalVisible);
+                  }}
+                >
+                  <View>
+                    <Icon
+                      type="font-awesome"
+                      name="times"
+                      color="#707070"
+                      size={25}
+                    />
+                  </View>
+                </TouchableHighlight>
+              </View>
+              <View style={styles.formView}>
+                <Text style={styles.headerText}>Welcome to Summit!</Text>
+                <Text style={styles.text}>
+                  Before getting started, save your alitude to your profile
+                </Text>
+                <Form />
+              </View>
+            </View>
           </View>
         </Modal>
 

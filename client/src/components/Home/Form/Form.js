@@ -68,34 +68,36 @@ class AltitudeForm extends Component {
             setFieldTouched
           }) => (
             <React.Fragment>
-              <Input
-                label="altitude"
-                placeholder="altitude"
-                value={values.altitude}
-                onChange={setFieldValue}
-                onTouch={setFieldTouched}
-                name="altitude"
-                onTouch={setFieldTouched}
-                error={touched.altitude && errors.altitude}
-              />
-              <UnitPicker
-                name="unit"
-                onValueChange={value => {
-                  setFieldValue("unit", value);
-                  this._onUnitChange(value);
-                }}
-                selectedValue={this.state.picker}
-                value={values.unit}
-              />
-              <Button
-                title="Save"
-                buttonStyle={styles.button}
-                onPress={handleSubmit}
-              />
+              <View style={styles.form}>
+                <Input
+                  label="altitude"
+                  placeholder="altitude"
+                  value={values.altitude}
+                  onChange={setFieldValue}
+                  onTouch={setFieldTouched}
+                  name="altitude"
+                  onTouch={setFieldTouched}
+                  error={touched.altitude && errors.altitude}
+                />
+                <UnitPicker
+                  name="unit"
+                  onValueChange={value => {
+                    setFieldValue("unit", value);
+                    this._onUnitChange(value);
+                  }}
+                  selectedValue={this.state.picker}
+                  value={values.unit}
+                />
+                <Button
+                  title="Save"
+                  buttonStyle={styles.button}
+                  onPress={handleSubmit}
+                />
+              </View>
             </React.Fragment>
           )}
         />
-        <Text>{this.state.success}</Text>
+        <Text style={styles.successMessage}>{this.state.success}</Text>
       </View>
     );
   }

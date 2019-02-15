@@ -9,7 +9,7 @@ class SignIn extends Component {
         return(
             <View style={styles.container}>
             <Text style={styles.headerText}>Sign In</Text>
-            <SignInForm />
+            <SignInForm navigation = {this.props.navigation} />
              <TouchableOpacity
                      underlayColor='#fff'
                      style={{marginTop: 20}}

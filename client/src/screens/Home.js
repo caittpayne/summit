@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { StatusBar } from 'react-native';
-import { SignIn } from '../components/SignIn';
 import { Container } from '../components/Container';
 import { Header } from '../components/header/main';
+import { Home } from "../components/Home";
 
-class Home extends Component {
+class HomeScreen extends Component {
     render() {
         return(
             <Container>
-            <StatusBar translucent={false} barStyle='default'/>
-            <Header />
-            <SignIn navigation={this.props.navigation}/>
-        </Container>
+                <StatusBar translucent={false} barStyle='default'/>
+                <Header />
+                <Home navigation={this.props.navigation} />
+            </Container>
         )
     }
 }
-export default Home;
+export default HomeScreen;

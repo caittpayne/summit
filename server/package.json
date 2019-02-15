@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "SET NODE_ENV=test&& jasmine",
-    "start": "nodemon src/server.js"
+    "start": "node src/server.js"
   },
   "author": "",
   "license": "ISC",

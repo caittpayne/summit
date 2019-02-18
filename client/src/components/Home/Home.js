@@ -79,8 +79,8 @@ class Home extends Component {
           </View>
         </Modal>
 
-        <Button title="Convert Recipe" buttonStyle={styles.button} />
-        <Button title="My Recipe Book" buttonStyle={styles.button} />
+        <Button title="Convert Recipe" buttonStyle={styles.button} onPress={() => {alert('Will walk user through ingredients')}}/>
+        <Button title="My Recipe Book" buttonStyle={styles.button} onPress={() => {alert('Will take user to recipe book')}}/>
       </View>
     );
   }
